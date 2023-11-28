@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-    <p>word</p>
+    <h3>calcul</h3>
     </>
   )
 }
