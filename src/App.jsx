@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 function App() {
+  let type = (e) => {
+   console.log(e.target.textContent.trim())
+  }
   return (
     <>
       <h3 className="text-center">calculator</h3>
@@ -34,7 +39,7 @@ function App() {
           <div className="box">0</div>
           <div className="box">.</div>
           <div className="box">=</div>
-          <div className="box">+</div>
+          <div onClick={(e) => type(e)} className="box">+</div>
         </div>
       </main>
     </>
