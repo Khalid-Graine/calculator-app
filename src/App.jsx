@@ -2,15 +2,18 @@ import { useState } from "react";
 
 function App() {
   const [expression, setExpression] = useState('')
-
+  // const []
   let type = (e) => {
+  if(typeof expression === 'number') {
+    setExpression('')
+  }
    let v = e.target.textContent.trim();
    setExpression(`${expression}${v}`)
   }
   let deleteAll = () => {
     setExpression('')
   }
-
+  
   let calculateExpression = () => {
     try {
       let result = eval(expression);
@@ -22,6 +25,10 @@ function App() {
     }
     
   }
+
+  const removeLastNumber = () => {
+    setExpression(expression.slice(0,-1))
+  }
   return (
     <>
       <h3 className="text-center">calculator</h3>
@@ -32,7 +39,7 @@ function App() {
         <div className="col-span-4 grid grid-cols-4">
           <div  onClick={(e) => type(e)} className="box">(</div>
           <div  onClick={(e) => type(e)} className="box">)</div>
-          <div className="box">C</div>
+          <div onClick={() => removeLastNumber()} className="box">C</div>
           <div onClick={() => deleteAll()} className="box">delete</div>
         </div>
         <div className="col-span-3 grid  grid-cols-3">
