@@ -2,7 +2,12 @@ function App() {
   return (
     <>
       <h3 className="text-center">calculator</h3>
-      <main className="w-10/12 mx-auto grid grid-cols-4">
+      <div className="">
+        <form >
+          <input type="text" className="border w-full my-1" />
+        </form>
+      </div>
+      <main className=" grid grid-cols-4">
         <div className="col-span-4 grid grid-cols-4">
           <div className="box">(</div>
           <div className="box">)</div>
