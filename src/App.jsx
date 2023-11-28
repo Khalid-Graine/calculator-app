@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function App() {
   const [expression, setExpression] = useState('')
-  // const []
+
   let type = (e) => {
    let number = e.target.textContent.trim();
    setExpression(`${expression}${number}`);
@@ -37,8 +37,8 @@ function App() {
   return (
     <>
       <h3 className="text-center">calculator</h3>
-      <div className="border px-2">
-      <p>{expression} </p>
+      <div className="border px-2  h-10 flex justify-start items-center">
+     {expression} 
       </div>
       <main className=" grid grid-cols-4">
         <div className="col-span-4 grid grid-cols-4">
