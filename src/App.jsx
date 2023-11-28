@@ -4,12 +4,17 @@ function App() {
   const [expression, setExpression] = useState('')
   // const []
   let type = (e) => {
-  if(typeof expression === 'number') {
-    setExpression('')
+   let number = e.target.textContent.trim();
+   setExpression(`${expression}${number}`);
+
+  //  chech if there is recent result
+   if(typeof expression === 'number') {
+    setExpression(number)
+  } 
+  
   }
-   let v = e.target.textContent.trim();
-   setExpression(`${expression}${v}`)
-  }
+
+
   let deleteAll = () => {
     setExpression('')
   }
