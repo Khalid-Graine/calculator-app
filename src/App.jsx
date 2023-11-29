@@ -78,7 +78,7 @@ function App() {
           <div onClick={(e) => type(e)}  className="box">+</div>
         </div>
       </main>
-      <Histories />
+      <Histories histories={histories} />
       </div>
     </>
   );

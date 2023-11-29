@@ -1,8 +1,19 @@
 import React from 'react'
 
-const Histories = () => {
+const Histories = ({histories}) => {
   return (
-    <div>history Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, laudantium?</div>
+    <ul>
+      {histories && 
+      histories.map((h) => (
+        <li>
+          <p>{h.expression}</p>
+          <p>{h.result}</p>
+          <p>{h.date}</p>
+        </li>
+      )
+      )
+      }
+    </ul>
   )
 }
 
