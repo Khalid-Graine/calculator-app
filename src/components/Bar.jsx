@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Bar = () => {
+const Bar = ({expression}) => {
   return (
-    <div>Bar</div>
+    <div className="border px-2  h-10 flex justify-end items-center">
+    {expression} 
+     </div>
   )
 }
 

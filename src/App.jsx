@@ -48,10 +48,8 @@ function App() {
     <>
       <div className="w-11/12 mx-auto">
       <Title text={'calculator'} />
-      <div className="border px-2  h-10 flex justify-end items-center">
-     {expression} 
-      </div>
-      <Bar />
+      
+      <Bar {...{expression}} />
       <Calculator {...{type,removeLastNumber,deleteAll,calculateExpression}} />
       <Histories histories={histories} />
       </div>
