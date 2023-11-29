@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Histories from "./components/Histories";
 import Title from "./components/Title";
 import Calculator from "./components/Calculator";
@@ -6,8 +6,6 @@ import Bar from "./components/Bar";
 function App() {
   const [expression, setExpression] = useState("");
   const [histories, setHistory] = useState([]);
-
- 
 
   let type = (e) => {
     let number = e.target.textContent.trim();
@@ -25,26 +23,19 @@ function App() {
 
   let calculateExpression = () => {
     let result;
-    
+
+    if (typeof expression === "number") return;
+
     try {
-      if(
-        !expression.startsWith(0) &&
-        !expression.startsWith('/') &&
-        !expression.startsWith('*') &&
-        !expression.startsWith(')')
-         ) {
-        result = eval(expression);
-       } else {
-        alert('invalid input');
-       }
+      result = eval(expression);
       if (typeof result === "number") {
         setExpression(result);
         setHistory((old) => {
-          return [ GetTheNewHistory(result),...old];
+          return [GetTheNewHistory(result), ...old];
         });
       }
     } catch (error) {
-      alert(error);
+      alert("invalid input");
     }
   };
 
@@ -74,12 +65,14 @@ function App() {
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
     let h = date.getHours();
-    let m = date.getMinutes() < 10 ? '0' + date.getMinutes()  : date.getMinutes() ;
-    let s = date.getSeconds() < 10 ? '0' + date.getSeconds()  : date.getSeconds() ;
-    let time = `${h}:${m}:${s}`
-    let datee = `${day}/${month}/${year}`
+    let m =
+      date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    let s =
+      date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+    let time = `${h}:${m}:${s}`;
+    let datee = `${day}/${month}/${year}`;
 
-    return `${time}`
+    return `${time}`;
   };
 
   return (
