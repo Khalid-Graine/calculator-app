@@ -2,7 +2,11 @@ import { useState } from "react";
 
 function App() {
   const [expression, setExpression] = useState('')
-
+  const [histories,setHistory] = useState([{
+    expression: '10+10',
+    result: '20',
+    date: '10/12/2021',
+  }])
   let type = (e) => {
    let number = e.target.textContent.trim();
    setExpression(`${expression}${number}`);
@@ -20,8 +24,8 @@ function App() {
   }
   
   let calculateExpression = () => {
+    let result = eval(expression);
     try {
-      let result = eval(expression);
     if(typeof result === 'number') {
       setExpression(result)
     } 
@@ -32,12 +36,16 @@ function App() {
   }
 
   const removeLastNumber = () => {
-    setExpression(expression.slice(0,-1))
+    if(typeof expression != 'number') {
+      setExpression(expression.slice(0,-1))
+    }
+   
   }
   return (
     <>
+      <div className="w-11/12 mx-auto">
       <h3 className="text-center">calculator</h3>
-      <div className="border px-2  h-10 flex justify-start items-center">
+      <div className="border px-2  h-10 flex justify-end items-center">
      {expression} 
       </div>
       <main className=" grid grid-cols-4">
@@ -70,6 +78,13 @@ function App() {
           <div onClick={(e) => type(e)}  className="box">+</div>
         </div>
       </main>
+      <div>
+        <h3>history</h3>
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+      </div>
     </>
   );
 }
