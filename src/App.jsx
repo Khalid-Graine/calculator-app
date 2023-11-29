@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Histories from "./components/Histories";
+import Title from "./components/Title";
 function App() {
   const [expression, setExpression] = useState('')
   const [histories,setHistory] = useState([{
@@ -44,7 +45,7 @@ function App() {
   return (
     <>
       <div className="w-11/12 mx-auto">
-      <h3 className="text-center">calculator</h3>
+      <Title text={'calculator'} />
       <div className="border px-2  h-10 flex justify-end items-center">
      {expression} 
       </div>

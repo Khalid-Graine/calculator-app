@@ -1,9 +1,13 @@
 import React from 'react'
+import Title from './Title'
+
 
 const Histories = ({histories}) => {
   return (
-    
-    <ul className='mt-2'>
+    <div>
+
+      <Title text={'Histories'} />
+    <ul className='mt-1'>
       {histories && 
       histories.map((h) => (
         <li className='flex justify-between border '>
@@ -18,6 +22,7 @@ const Histories = ({histories}) => {
       )
       }
     </ul>
+    </div>
   )
 }
 
