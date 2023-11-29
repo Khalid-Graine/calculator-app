@@ -1,5 +1,6 @@
 import React from 'react'
 import Title from './Title'
+import NoResult from './NoResult'
 
 
 const Histories = ({histories}) => {
@@ -8,6 +9,7 @@ const Histories = ({histories}) => {
 
       <Title text={'Histories'} />
     <ul >
+      {histories.length === 0 && <NoResult text={'there is no histories yet'} />}
       {histories && 
       histories.map((h) => (
         <li key={h.id} className='flex justify-between border '>

@@ -5,18 +5,9 @@ import Calculator from "./components/Calculator";
 import Bar from "./components/Bar";
 function App() {
   const [expression, setExpression] = useState("");
-  const [histories, setHistory] = useState([
-    {
-      id: 34,
-      expression: "10+10",
-      result: "20",
-      date: "10/12/2021",
-    },
-  ]);
+  const [histories, setHistory] = useState([]);
 
-  useEffect(() => {
-    console.log(getCurrentDate())
-  },[expression])
+ 
 
   let type = (e) => {
     let number = e.target.textContent.trim();
@@ -38,7 +29,7 @@ function App() {
       if (typeof result === "number") {
         setExpression(result);
         setHistory((old) => {
-          [...old, GetTheNewHistory(result)];
+          return [...old, GetTheNewHistory(result)];
         });
       }
     } catch (error) {
@@ -75,7 +66,7 @@ function App() {
     let time = `${h}:${m}:${s}`
     let datee = `${day}/${month}/${year}`
 
-    return time + '  ' + datee
+    return `${time}`
   }
   return (
     <>
