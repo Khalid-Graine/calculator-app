@@ -7,10 +7,10 @@ const Histories = ({histories}) => {
     <div>
 
       <Title text={'Histories'} />
-    <ul className='mt-1'>
+    <ul >
       {histories && 
       histories.map((h) => (
-        <li className='flex justify-between border '>
+        <li key={h.id} className='flex justify-between border '>
          <div className='flex gap-4'>
          <p>{h.expression}</p>
           <span>=</span>
