@@ -24,12 +24,23 @@ function App() {
   };
 
   let calculateExpression = () => {
-    let result = eval(expression);
+    let result;
+    
     try {
+      if(
+        !expression.startsWith(0) &&
+        !expression.startsWith('/') &&
+        !expression.startsWith('*') &&
+        !expression.startsWith(')')
+         ) {
+        result = eval(expression);
+       } else {
+        alert('invalid input');
+       }
       if (typeof result === "number") {
         setExpression(result);
         setHistory((old) => {
-          return [...old, GetTheNewHistory(result)];
+          return [ GetTheNewHistory(result),...old];
         });
       }
     } catch (error) {
@@ -52,9 +63,11 @@ function App() {
     };
     return NewHistory;
   };
+
   const getRandomId = () => {
     return Math.floor(Math.random() * 1000);
   };
+
   const getCurrentDate = () => {
     let date = new Date();
     let day = date.getDate();
@@ -67,7 +80,8 @@ function App() {
     let datee = `${day}/${month}/${year}`
 
     return `${time}`
-  }
+  };
+
   return (
     <>
       <div className="w-11/12 mx-auto">
