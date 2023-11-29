@@ -33,17 +33,9 @@ function App() {
     try {
       if (typeof result === "number") {
         setExpression(result);
-
-
+        console.log(GetTheNewHistory(result))
         setHistory((old) => {
-        console.log(Math.floor(Math.random() * 20))
-        let NewHistory = {
-          id: getRandomId(),
-          expression: expression,
-          result: result,
-          date: 'date',
-        }
-        console.log(expression + '=' + result )
+        // console.log(expression + '=' + result )
         return old
         });
 
@@ -61,7 +53,15 @@ function App() {
       setExpression(expression.slice(0, -1));
     }
   };
-
+  const GetTheNewHistory = (result) => {
+    let NewHistory = {
+      id: getRandomId(),
+      expression: expression,
+      result: result,
+      date: 'date',
+    }
+    return NewHistory
+  }
   const getRandomId = () =>{
    return  Math.floor(Math.random() * 1000)
   }
