@@ -2,13 +2,17 @@ import React from 'react'
 
 const Histories = ({histories}) => {
   return (
-    <ul>
+    
+    <ul className='mt-2'>
       {histories && 
       histories.map((h) => (
-        <li>
-          <p>{h.expression}</p>
+        <li className='flex justify-between border '>
+         <div className='flex gap-4'>
+         <p>{h.expression}</p>
+          <span>=</span>
           <p>{h.result}</p>
-          <p>{h.date}</p>
+         </div>
+          <p >{h.date}</p>
         </li>
       )
       )
