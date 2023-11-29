@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Histories from "./components/Histories";
 import Title from "./components/Title";
+import Calculator from "./components/Calculator";
 function App() {
   const [expression, setExpression] = useState('')
   const [histories,setHistory] = useState([{
@@ -79,6 +80,7 @@ function App() {
           <div onClick={(e) => type(e)}  className="box">+</div>
         </div>
       </main>
+      <Calculator />
       <Histories histories={histories} />
       </div>
     </>
