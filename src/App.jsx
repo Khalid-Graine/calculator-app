@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Histories from "./components/Histories";
 import Title from "./components/Title";
 import Calculator from "./components/Calculator";
@@ -13,6 +13,11 @@ function App() {
       date: "10/12/2021",
     },
   ]);
+
+  useEffect(() => {
+    console.log(getCurrentDate())
+  },[expression])
+
   let type = (e) => {
     let number = e.target.textContent.trim();
     setExpression(`${expression}${number}`);
@@ -29,19 +34,12 @@ function App() {
 
   let calculateExpression = () => {
     let result = eval(expression);
-   
     try {
       if (typeof result === "number") {
         setExpression(result);
-        console.log(GetTheNewHistory(result))
         setHistory((old) => {
-        // console.log(expression + '=' + result )
-        return old
+          [...old, GetTheNewHistory(result)];
         });
-
-
-
-
       }
     } catch (error) {
       alert(error);
@@ -53,17 +51,31 @@ function App() {
       setExpression(expression.slice(0, -1));
     }
   };
+
   const GetTheNewHistory = (result) => {
     let NewHistory = {
       id: getRandomId(),
       expression: expression,
       result: result,
-      date: 'date',
-    }
-    return NewHistory
-  }
-  const getRandomId = () =>{
-   return  Math.floor(Math.random() * 1000)
+      date: getCurrentDate(),
+    };
+    return NewHistory;
+  };
+  const getRandomId = () => {
+    return Math.floor(Math.random() * 1000);
+  };
+  const getCurrentDate = () => {
+    let date = new Date();
+    let day = date.getDate();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let h = date.getHours();
+    let m = date.getMinutes() < 10 ? '0' + date.getMinutes()  : date.getMinutes() ;
+    let s = date.getSeconds() < 10 ? '0' + date.getSeconds()  : date.getSeconds() ;
+    let time = `${h}:${m}:${s}`
+    let datee = `${day}/${month}/${year}`
+
+    return time + '  ' + datee
   }
   return (
     <>
