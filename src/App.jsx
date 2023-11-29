@@ -2,6 +2,7 @@ import { useState } from "react";
 import Histories from "./components/Histories";
 import Title from "./components/Title";
 import Calculator from "./components/Calculator";
+import Bar from "./components/Bar";
 function App() {
   const [expression, setExpression] = useState('')
   const [histories,setHistory] = useState([{
@@ -50,6 +51,7 @@ function App() {
       <div className="border px-2  h-10 flex justify-end items-center">
      {expression} 
       </div>
+      <Bar />
       <Calculator {...{type,removeLastNumber,deleteAll,calculateExpression}} />
       <Histories histories={histories} />
       </div>
