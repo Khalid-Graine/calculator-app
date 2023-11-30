@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "./Title";
 import NoResult from "./NoResult";
-
+import { FaDeleteLeft } from "react-icons/fa6";
 const Histories = ({ histories, deleteHistory, updateHistory }) => {
   return (
     <div>
@@ -22,9 +22,8 @@ const Histories = ({ histories, deleteHistory, updateHistory }) => {
                 <p className="text-sm">{h.date}</p>
                 <button
                   onClick={() => deleteHistory(h.id)}
-                  className="bg-red-200 hover:bg-red-300 px-2 rounded-sm"
                 >
-                  Delete
+                  <FaDeleteLeft className="text-xl hover:text-red-500 active:text-red-700" />
                 </button>
               </div>
             </li>
