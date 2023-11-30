@@ -79,6 +79,8 @@ function App() {
    setHistory((old) => { 
      return old.filter((h) => h.id !== id )
    })
+
+   
    }
   return (
     <>
@@ -88,7 +90,11 @@ function App() {
         <Calculator
           {...{ type, removeLastNumber, deleteAll, calculateExpression }}
         />
-        <Histories histories={histories} deleteHistory={deleteHistory} />
+        <Histories 
+        histories={histories} 
+        deleteHistory={deleteHistory} 
+       
+         />
       </div>
     </>
   );

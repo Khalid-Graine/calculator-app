@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+* {
+    font-size: 18px;
+}
 .box {
-    @apply border flex justify-center items-center cursor-pointer active:bg-gray-200 hover:bg-gray-100
+    @apply border flex justify-center py-1 text-lg items-center cursor-pointer active:bg-gray-200 hover:bg-gray-100
 }
