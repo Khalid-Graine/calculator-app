@@ -12,14 +12,16 @@ const Histories = ({ histories,deleteHistory }) => {
         )}
         {histories &&
           histories.map((h) => (
-            <li key={h.id} className="flex justify-between border p-1">
+            <li key={h.id}  className="flex justify-between border p-1">
               <div className="flex gap-4">
                 <p>{h.expression}</p>
                 <span>=</span>
                 <p>{h.result}</p>
               </div>
-              <p>{h.date}</p>
+              <div className="flex items-center gap-2">
+              <p className="text-sm">{h.date}</p>
               <button onClick={() => deleteHistory(h.id)}  className="bg-red-200 hover:bg-red-300 px-2 rounded-sm">Delete</button>
+              </div>
             </li>
           ))}
       </ul>

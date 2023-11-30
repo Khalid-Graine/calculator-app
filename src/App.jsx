@@ -76,7 +76,9 @@ function App() {
     return `${time}`;
   };
    const deleteHistory = (id) => {
-    console.log(id)
+   setHistory((old) => { 
+     return old.filter((h) => h.id !== id )
+   })
    }
   return (
     <>
