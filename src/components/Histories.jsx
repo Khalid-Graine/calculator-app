@@ -8,7 +8,7 @@ const Histories = ({ histories }) => {
       <Title text={"Histories"} />
       <ul>
         {histories.length === 0 && (
-          <NoResult text={"there is no histories yet"} />
+          <NoResult text={"You have not any histories yet"} />
         )}
         {histories &&
           histories.map((h) => (
@@ -19,6 +19,7 @@ const Histories = ({ histories }) => {
                 <p>{h.result}</p>
               </div>
               <p>{h.date}</p>
+              <button  className="bg-red-200 hover:bg-red-300 px-2 rounded-sm">Delete</button>
             </li>
           ))}
       </ul>
