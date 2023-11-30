@@ -35,6 +35,7 @@ function App() {
         });
       }
     } catch (error) {
+      setExpression('')
       alert("invalid input");
     }
   };
