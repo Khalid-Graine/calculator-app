@@ -64,7 +64,7 @@ function App() {
     let day = date.getDate();
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
-    let h = date.getHours();
+    let h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours() ;
     let m =
       date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
     let s =
