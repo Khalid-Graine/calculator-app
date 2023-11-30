@@ -75,7 +75,9 @@ function App() {
 
     return `${time}`;
   };
-
+   const deleteHistory = (id) => {
+    console.log(id)
+   }
   return (
     <>
       <div className="w-11/12 mx-auto">
@@ -84,7 +86,7 @@ function App() {
         <Calculator
           {...{ type, removeLastNumber, deleteAll, calculateExpression }}
         />
-        <Histories histories={histories} />
+        <Histories histories={histories} deleteHistory={deleteHistory} />
       </div>
     </>
   );
